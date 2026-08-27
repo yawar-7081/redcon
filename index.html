@@ -2045,6 +2045,147 @@
           text-align: center;
         }
       }
+
+      /* ── PROJECTS RESPONSIVE ── */
+
+      @media (max-width: 900px) {
+        .projects-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto auto;
+        }
+
+        /* Card 01 */
+        .project-card:first-child {
+          grid-column: 1;
+          grid-row: 1;
+          min-height: 320px;
+        }
+
+        /* Card 02 */
+        .project-card:nth-child(2) {
+          grid-column: 2;
+          grid-row: 1;
+          min-height: 320px;
+        }
+
+        /* Card 03 */
+        .project-card:nth-child(3) {
+          grid-column: 1;
+          grid-row: 2;
+          min-height: 320px;
+        }
+
+        /* Card 04 */
+        .project-card:nth-child(4) {
+          grid-column: 2;
+          grid-row: 2;
+          min-height: 320px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .projects-section {
+          padding: 4rem 0;
+          overflow: hidden;
+        }
+
+        .projects-section .section-header {
+          padding: 0 5vw;
+          margin-bottom: 2.5rem;
+        }
+
+        .projects-section .section-title {
+          font-size: 2.8rem;
+        }
+
+        .projects-section .section-desc {
+          font-size: 0.9rem;
+          line-height: 1.6;
+        }
+
+        /* Carousel */
+        .projects-grid {
+          display: flex;
+          align-items: stretch;
+          gap: 12px;
+
+          overflow-x: auto;
+          overflow-y: hidden;
+
+          padding: 0 9vw;
+
+          background: transparent;
+          border: none;
+
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+
+          scroll-behavior: smooth;
+          scroll-snap-type: x mandatory;
+        }
+
+        .projects-grid::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Cards */
+        .project-card {
+          flex: 0 0 72vw;
+          width: 72vw;
+
+          min-height: 320px;
+
+          padding: 2rem 1.5rem;
+
+          scroll-snap-align: center;
+
+          transform: scale(0.86);
+          opacity: 0.55;
+
+          transition:
+            transform 0.45s ease,
+            opacity 0.45s ease;
+        }
+
+        /* Active / center card */
+        .project-card.active {
+          transform: scale(1);
+          opacity: 1;
+        }
+
+        /* Remove desktop grid positioning */
+        .project-card:first-child,
+        .project-card:nth-child(2),
+        .project-card:nth-child(3),
+        .project-card:nth-child(4) {
+          grid-column: auto;
+          grid-row: auto;
+          min-height: 320px;
+        }
+
+        /* Project text */
+        .project-tag {
+          font-size: 0.65rem;
+          letter-spacing: 0.14em;
+          margin-bottom: 0.4rem;
+        }
+
+        .project-name {
+          font-size: 1.25rem;
+          line-height: 1.1;
+          letter-spacing: 0.03em;
+        }
+
+        .project-num {
+          font-size: 3.2rem;
+          top: 1rem;
+          right: 1rem;
+        }
+
+        .project-img {
+          object-position: center 30%;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2611,6 +2752,117 @@
           el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
           observer.observe(el);
         });
+
+      function initProjectCarousel() {
+        if (window.innerWidth > 600) return;
+
+        const container = document.querySelector(".projects-grid");
+        const cards = Array.from(container.querySelectorAll(".project-card"));
+
+        if (!container || cards.length === 0) return;
+
+        let currentIndex = 0;
+        let autoPlay;
+
+        function updateActiveCard() {
+          const containerCenter =
+            container.scrollLeft + container.offsetWidth / 2;
+
+          let closestCard = null;
+          let closestDistance = Infinity;
+
+          cards.forEach((card) => {
+            const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+
+            const distance = Math.abs(containerCenter - cardCenter);
+
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              closestCard = card;
+            }
+          });
+
+          cards.forEach((card) => {
+            card.classList.remove("active");
+          });
+
+          if (closestCard) {
+            closestCard.classList.add("active");
+          }
+        }
+
+        function goToCard(index) {
+          currentIndex = index;
+
+          const card = cards[currentIndex];
+
+          container.scrollTo({
+            left:
+              card.offsetLeft -
+              container.offsetWidth / 2 +
+              card.offsetWidth / 2,
+            behavior: "smooth",
+          });
+
+          updateActiveCard();
+        }
+
+        function startAutoPlay() {
+          clearInterval(autoPlay);
+
+          autoPlay = setInterval(() => {
+            currentIndex++;
+
+            if (currentIndex >= cards.length) {
+              currentIndex = 0;
+            }
+
+            goToCard(currentIndex);
+          }, 2500);
+        }
+
+        /* Initial card */
+        goToCard(0);
+
+        /* Update active card while manually swiping */
+        container.addEventListener(
+          "scroll",
+          () => {
+            requestAnimationFrame(updateActiveCard);
+          },
+          { passive: true },
+        );
+
+        /* Restart autoplay after user interaction */
+        let touchTimeout;
+
+        container.addEventListener("touchstart", () => {
+          clearInterval(autoPlay);
+        });
+
+        container.addEventListener("touchend", () => {
+          clearTimeout(touchTimeout);
+
+          touchTimeout = setTimeout(() => {
+            updateActiveCard();
+
+            const activeIndex = cards.findIndex((card) =>
+              card.classList.contains("active"),
+            );
+
+            if (activeIndex !== -1) {
+              currentIndex = activeIndex;
+            }
+
+            startAutoPlay();
+          }, 500);
+        });
+
+        startAutoPlay();
+      }
+
+      window.addEventListener("load", initProjectCarousel);
+      window.addEventListener("resize", initProjectCarousel);
     </script>
   </body>
 </html>
