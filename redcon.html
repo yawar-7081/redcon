@@ -1,0 +1,2616 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REDCON — Engineering & Construction</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        /* ── REDCON brand colors (from letterhead: dark navy + green accent) ── */
+        --blue: #1b3a6b;
+        --blue-dark: #102649;
+        --blue-bright: #2254a0;
+        --green: #4caf50;
+        --green-dark: #388e3c;
+        --green-bright: #66bb6a;
+        --black: #0a0a0a;
+        --charcoal: #121418;
+        --steel: #1a1e24;
+        --mid: #2a2f38;
+        --muted: #6a7280;
+        --silver: #a8b0bc;
+        --white: #f4f6f9;
+        --cream: #e8ecf2;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--black);
+        color: var(--white);
+        font-family: "Barlow", sans-serif;
+        font-weight: 300;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.4rem 5vw;
+        background: rgba(10, 11, 13, 0.92);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(27, 58, 107, 0.35);
+      }
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.9rem;
+        letter-spacing: 0.06em;
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+      }
+      .logo-main {
+        display: flex;
+        align-items: baseline;
+        gap: 0.15em;
+      }
+      .logo span {
+        color: var(--green);
+      }
+      .logo-sub {
+        font-size: 0.52rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--silver);
+        font-family: "Barlow", sans-serif;
+        font-weight: 600;
+        margin-top: 0.1rem;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.6rem;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--silver);
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--green-bright);
+      }
+      .nav-cta {
+        background: var(--blue);
+        color: var(--white) !important;
+        padding: 0.52rem 1.4rem;
+        border: 1px solid var(--blue-bright) !important;
+        transition: background 0.2s !important;
+      }
+      .nav-cta:hover {
+        background: var(--blue-bright) !important;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 9rem 5vw 5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 60% 80% at 75% 50%,
+            rgba(27, 58, 107, 0.18) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 30% 40% at 80% 60%,
+            rgba(76, 175, 80, 0.07) 0%,
+            transparent 60%
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 79px,
+            rgba(255, 255, 255, 0.012) 80px
+          );
+        pointer-events: none;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(76, 175, 80, 0.12);
+        border: 1px solid rgba(76, 175, 80, 0.35);
+        color: var(--green-bright);
+        padding: 0.35rem 1rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        animation: fadeUp 0.7s ease both;
+      }
+      .hero-badge::before {
+        content: "●";
+        font-size: 0.5rem;
+        animation: blink 1.8s infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+      }
+
+      .hero-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(4.5rem, 9vw, 9rem);
+        line-height: 0.92;
+        letter-spacing: 0.02em;
+        animation: fadeUp 0.7s 0.1s ease both;
+      }
+      .hero-title .accent {
+        color: var(--green);
+        display: block;
+      }
+      .hero-sub {
+        margin-top: 1.8rem;
+        font-size: 1.05rem;
+        color: var(--silver);
+        max-width: 650px;
+        line-height: 1.7;
+        animation: fadeUp 0.7s 0.2s ease both;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2.5rem;
+        animation: fadeUp 0.7s 0.3s ease both;
+      }
+      .btn-primary {
+        background: var(--blue);
+        color: var(--white);
+        padding: 1rem 2.2rem;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+      }
+      .btn-primary:hover {
+        background: var(--blue-bright);
+        transform: translateY(-2px);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--silver);
+        padding: 1rem 2.2rem;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 1px solid var(--mid);
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .btn-ghost:hover {
+        border-color: var(--silver);
+        color: var(--white);
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: 3.5rem;
+        animation: fadeUp 0.7s 0.4s ease both;
+      }
+      .stat-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.6rem;
+        color: var(--green-bright);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 0.2rem;
+      }
+
+      /* hero right */
+      .hero-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 1s 0.3s ease both;
+        position: relative;
+      }
+      .hero-graphic {
+        width: 420px;
+        height: 420px;
+        position: relative;
+      }
+      .hex-ring {
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(27, 58, 107, 0.45);
+        border-radius: 50%;
+        animation: spin 28s linear infinite;
+      }
+      .hex-ring:nth-child(2) {
+        inset: 30px;
+        border-color: rgba(76, 175, 80, 0.2);
+        animation-direction: reverse;
+        animation-duration: 18s;
+      }
+      .hex-center {
+        position: absolute;
+        inset: 60px;
+        background: radial-gradient(
+          circle,
+          rgba(27, 58, 107, 0.28) 0%,
+          rgba(10, 11, 13, 0.9) 70%
+        );
+        border-radius: 50%;
+        border: 2px solid rgba(27, 58, 107, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .hex-logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 3.2rem;
+        color: var(--white);
+        line-height: 1;
+      }
+      .hex-logo span {
+        color: var(--green);
+      }
+      .hex-sub {
+        font-size: 0.58rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 0.3rem;
+        text-align: center;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ── MARQUEE ── */
+      .marquee-strip {
+        background: var(--blue);
+        padding: 0.9rem 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .marquee-inner {
+        display: inline-flex;
+        gap: 0;
+        animation: marquee 20s linear infinite;
+      }
+      .marquee-item {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.9);
+        padding: 0 2.5rem;
+      }
+      .marquee-dot {
+        color: var(--green-bright);
+        padding: 0 0.2rem;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ── SERVICES ── */
+
+      section {
+        padding: 6rem 5vw;
+      }
+
+      .section-eyebrow {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--green-bright);
+        margin-bottom: 0.8rem;
+      }
+
+      .section-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.8rem, 5vw, 4.5rem);
+        line-height: 0.95;
+        letter-spacing: 0.03em;
+      }
+
+      .section-header {
+        max-width: 780px;
+        margin-bottom: 3.5rem;
+      }
+
+      .section-desc {
+        max-width: 720px;
+        color: var(--silver);
+        margin-top: 1.2rem;
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      /* ── SERVICES GRID ── */
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--mid);
+        border: 1px solid var(--mid);
+      }
+
+      /* ── SERVICE CARD ── */
+
+      .service-card {
+        background: var(--charcoal);
+        min-height: 280px;
+        padding: 2.5rem 2rem 2.2rem;
+
+        display: flex;
+        flex-direction: column;
+
+        position: relative;
+        overflow: hidden;
+
+        transition:
+          background 0.25s ease,
+          transform 0.25s ease;
+
+        cursor: default;
+      }
+
+      /* Left accent line */
+
+      .service-card::after {
+        content: "";
+        position: absolute;
+
+        left: 0;
+        top: 0;
+        bottom: 0;
+
+        width: 3px;
+
+        background: var(--green);
+
+        transform: scaleY(0);
+        transform-origin: bottom;
+
+        transition: transform 0.3s ease;
+      }
+
+      /* Top number/accent line */
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 0;
+        height: 2px;
+
+        background: var(--green);
+
+        transition: width 0.35s ease;
+      }
+
+      /* Hover */
+
+      .service-card:hover {
+        background: var(--steel);
+      }
+
+      .service-card:hover::after {
+        transform: scaleY(1);
+      }
+
+      .service-card:hover::before {
+        width: 100%;
+      }
+
+      /* ── SERVICE ICON ── */
+
+      .service-icon {
+        font-size: 2rem;
+        line-height: 1;
+
+        margin-bottom: 1.6rem;
+
+        display: block;
+
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover .service-icon {
+        transform: translateY(-3px);
+      }
+
+      /* ── SERVICE NAME ── */
+
+      .service-name {
+        max-width: 300px;
+
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+
+        line-height: 1.15;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+
+        margin-bottom: 0.9rem;
+      }
+
+      /* ── SERVICE DESCRIPTION ── */
+
+      .service-desc {
+        max-width: 360px;
+
+        font-size: 0.9rem;
+        color: var(--silver);
+
+        line-height: 1.7;
+
+        margin-top: auto;
+      }
+
+      /* ── RESPONSIVE ── */
+
+      @media (max-width: 900px) {
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        section {
+          padding: 4.5rem 5vw;
+        }
+
+        .section-header {
+          margin-bottom: 2.5rem;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-card {
+          min-height: 240px;
+          padding: 2rem 1.5rem;
+        }
+      }
+
+      /* ── WHY US ── */
+      .why-section {
+        background: var(--charcoal);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+      .why-left {
+        padding: 6rem 5vw;
+      }
+      .why-right {
+        background: var(--blue-dark);
+        padding: 6rem 4vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .why-right::before {
+        content: "RC";
+        position: absolute;
+        right: -1rem;
+        bottom: -2rem;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 12rem;
+        color: rgba(255, 255, 255, 0.04);
+        line-height: 1;
+        pointer-events: none;
+      }
+      .feature-item {
+        display: flex;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .feature-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .feature-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2rem;
+        color: var(--green-bright);
+        line-height: 1;
+        min-width: 2.5rem;
+      }
+      .why-right .feature-num {
+        color: rgba(255, 255, 255, 0.25);
+      }
+      .feature-title {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.3rem;
+      }
+      .feature-desc {
+        font-size: 0.88rem;
+        color: var(--silver);
+        line-height: 1.65;
+      }
+      .why-right .feature-desc {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* ── PROJECTS ── */
+      .projects-section {
+        background: var(--black);
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 1px;
+        background: var(--mid);
+      }
+
+      .project-card:first-child {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        min-height: 460px;
+      }
+
+      .project-card:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .project-card:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .project-card:nth-child(4) {
+        grid-column: 3;
+        grid-row: 1 / 3;
+        min-height: 460px;
+      }
+      .project-card {
+        background: var(--charcoal);
+        padding: 2.5rem;
+        position: relative;
+        overflow: hidden;
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        transition: background 0.2s;
+      }
+
+      .project-card:nth-child(4) .project-img {
+        object-position: center 32%;
+      }
+      .project-card:first-child {
+        grid-row: 1 / 3;
+        min-height: 460px;
+      }
+      .project-card:hover {
+        background: var(--steel);
+      }
+      .project-tag {
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--green-bright);
+        margin-bottom: 0.5rem;
+      }
+      .project-name {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .project-val {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        color: var(--blue-bright);
+        line-height: 1;
+        margin-top: 0.4rem;
+      }
+      .project-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(10, 11, 13, 0.93) 35%,
+          rgba(10, 11, 13, 0.45) 70%,
+          rgba(10, 11, 13, 0.2) 100%
+        );
+        z-index: 1;
+      }
+      .project-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        object-position: center bottom;
+        transition: transform 0.5s ease;
+        filter: saturate(0.7) brightness(0.85);
+      }
+
+      .project-card:hover .project-img {
+        transform: scale(1.06);
+        filter: saturate(0.9) brightness(1);
+      }
+      .project-content {
+        position: relative;
+        z-index: 2;
+      }
+      .project-num {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        color: rgba(255, 255, 255, 0.04);
+        line-height: 1;
+      }
+
+      /* ── CTA BAND ── */
+      .cta-band {
+        background: var(--blue-dark);
+        padding: 5rem 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-band::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 20px,
+          rgba(255, 255, 255, 0.018) 20px,
+          rgba(255, 255, 255, 0.018) 21px
+        );
+      }
+      .cta-text {
+        position: relative;
+      }
+      .cta-heading {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.2rem, 4vw, 3.8rem);
+        line-height: 1;
+      }
+      .cta-sub {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.65);
+        margin-top: 0.5rem;
+      }
+      .cta-actions {
+        display: flex;
+        gap: 1rem;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .btn-white {
+        background: var(--white);
+        color: var(--blue-dark);
+        padding: 1rem 2.2rem;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s;
+        clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+      }
+      .btn-white:hover {
+        background: var(--cream);
+      }
+
+      /* ── CONTACT ── */
+      .contact-section {
+        background: var(--charcoal);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+      .contact-left {
+        padding: 6rem 5vw;
+      }
+      .contact-right {
+        padding: 6rem 5vw;
+        background: var(--steel);
+      }
+
+      .contact-info {
+        margin-top: 2.5rem;
+      }
+      .contact-row {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+        padding-bottom: 1.8rem;
+        border-bottom: 1px solid var(--mid);
+        align-items: flex-start;
+      }
+      .contact-row:last-child {
+        border-bottom: none;
+      }
+      .contact-icon {
+        font-size: 1.3rem;
+      }
+      .contact-key {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--green-bright);
+        margin-bottom: 0.25rem;
+      }
+      .contact-val {
+        font-size: 0.95rem;
+        color: var(--silver);
+      }
+      .gstin-val {
+        font-size: 0.88rem;
+        color: var(--silver);
+        font-family: "Barlow Condensed", sans-serif;
+        letter-spacing: 0.08em;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .label-text {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      input,
+      textarea,
+      select {
+        background: var(--charcoal);
+        border: 1px solid var(--mid);
+        color: var(--white);
+        padding: 0.85rem 1rem;
+        font-family: "Barlow", sans-serif;
+        font-size: 0.9rem;
+        outline: none;
+        transition: border-color 0.2s;
+        width: 100%;
+      }
+      input:focus,
+      textarea:focus,
+      select:focus {
+        border-color: var(--blue-bright);
+      }
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+      select option {
+        background: var(--charcoal);
+      }
+      .form-submit {
+        background: var(--blue);
+        color: var(--white);
+        border: none;
+        cursor: pointer;
+        padding: 1.1rem;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        transition: background 0.2s;
+        clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+      }
+      .form-submit:hover {
+        background: var(--blue-bright);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--black);
+        border-top: 1px solid var(--mid);
+        padding: 2.5rem 5vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .footer-logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.4rem;
+        letter-spacing: 0.06em;
+        line-height: 1;
+      }
+      .footer-logo span {
+        color: var(--green);
+      }
+      .footer-logo-sub {
+        font-size: 0.48rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-family: "Barlow", sans-serif;
+        font-weight: 600;
+      }
+      .footer-tagline {
+        font-size: 0.75rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-align: center;
+      }
+      .footer-copy {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .footer-links a {
+        font-size: 0.78rem;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--green-bright);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* responsive */
+      @media (max-width: 900px) {
+        .hero,
+        .why-section,
+        .contact-section {
+          grid-template-columns: 1fr;
+        }
+        .hero-right {
+          display: none;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .project-card:first-child {
+          grid-row: auto;
+        }
+        .cta-band {
+          flex-direction: column;
+          text-align: center;
+        }
+        .why-right {
+          padding: 4rem 5vw;
+        }
+        .nav-links {
+          display: none;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style> -->
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        /* ── REDCON brand palette — light, industrial, warm-neutral base ── */
+        --navy: #16305c;
+        --navy-deep: #0e2145;
+        --navy-bright: #2a5episteme; /* placeholder removed below */
+      }
+
+      :root {
+        --navy: #16305c;
+        --navy-deep: #0e2145;
+        --navy-bright: #2c5aa3;
+        --amber: #d97b21;
+        --amber-deep: #b6631a;
+        --forest: #2f7a4f;
+        --forest-deep: #23603c;
+
+        --ink: #1b1f27;
+        --ink-soft: #3d434f;
+        --muted: #6b7280;
+        --hairline: #e3e6eb;
+        --hairline-strong: #cfd4dc;
+
+        --paper: #faf9f6; /* main page background — warm off-white */
+        --card: #ffffff; /* card surfaces */
+        --card-tint: #f4f5f8; /* subtle alt surface */
+        --dark-band: #10192b; /* deep navy-black for contrast bands (why-right, cta, marquee) */
+
+        --shadow-sm:
+          0 1px 3px rgba(16, 25, 43, 0.06), 0 1px 2px rgba(16, 25, 43, 0.04);
+        --shadow-md:
+          0 8px 24px rgba(16, 25, 43, 0.08), 0 2px 6px rgba(16, 25, 43, 0.05);
+        --shadow-lg:
+          0 20px 50px rgba(16, 25, 43, 0.12), 0 4px 12px rgba(16, 25, 43, 0.06);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Barlow", sans-serif;
+        font-weight: 300;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.3rem 5vw;
+        background: rgba(250, 249, 246, 0.85);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.9rem;
+        letter-spacing: 0.06em;
+        color: var(--navy-deep);
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+      }
+      .logo-main {
+        display: flex;
+        align-items: baseline;
+        gap: 0.15em;
+      }
+      .logo span {
+        color: var(--amber);
+      }
+      .logo-sub {
+        font-size: 0.52rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-family: "Barlow", sans-serif;
+        font-weight: 600;
+        margin-top: 0.1rem;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.6rem;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--amber-deep);
+      }
+      .nav-cta {
+        background: var(--navy);
+        color: #fff !important;
+        padding: 0.6rem 1.4rem;
+        border: none !important;
+        box-shadow: var(--shadow-sm);
+        transition:
+          background 0.2s,
+          transform 0.15s !important;
+      }
+      .nav-cta:hover {
+        background: var(--navy-bright);
+        transform: translateY(-1px);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 9rem 5vw 5rem;
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            ellipse 55% 70% at 78% 45%,
+            rgba(217, 123, 33, 0.07) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 40% 50% at 15% 85%,
+            rgba(22, 48, 92, 0.05) 0%,
+            transparent 65%
+          ),
+          var(--paper);
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 79px,
+          rgba(16, 25, 43, 0.02) 80px
+        );
+        pointer-events: none;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #fff;
+        border: 1px solid var(--hairline-strong);
+        color: var(--amber-deep);
+        padding: 0.4rem 1rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        box-shadow: var(--shadow-sm);
+        animation: fadeUp 0.7s ease both;
+      }
+      .hero-badge::before {
+        content: "●";
+        font-size: 0.5rem;
+        color: var(--amber);
+        animation: blink 1.8s infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.25;
+        }
+      }
+
+      .hero-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(4.5rem, 9vw, 9rem);
+        line-height: 0.92;
+        letter-spacing: 0.02em;
+        color: var(--navy-deep);
+        animation: fadeUp 0.7s 0.1s ease both;
+      }
+      .hero-title .accent {
+        color: var(--amber);
+        display: block;
+      }
+      .hero-sub {
+        margin-top: 1.8rem;
+        font-size: 1.05rem;
+        color: var(--ink-soft);
+        max-width: 650px;
+        line-height: 1.7;
+        animation: fadeUp 0.7s 0.2s ease both;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2.5rem;
+        animation: fadeUp 0.7s 0.3s ease both;
+      }
+      .btn-primary {
+        background: var(--navy);
+        color: #fff;
+        padding: 1rem 2.2rem;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        box-shadow: var(--shadow-md);
+        transition:
+          background 0.2s,
+          transform 0.15s,
+          box-shadow 0.2s;
+        clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+      }
+      .btn-primary:hover {
+        background: var(--navy-bright);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+      .btn-ghost {
+        background: #fff;
+        color: var(--ink-soft);
+        padding: 1rem 2.2rem;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 1px solid var(--hairline-strong);
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          box-shadow 0.2s;
+      }
+      .btn-ghost:hover {
+        border-color: var(--navy);
+        color: var(--navy);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: 3.5rem;
+        animation: fadeUp 0.7s 0.4s ease both;
+      }
+      .stat-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.6rem;
+        color: var(--amber-deep);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 0.2rem;
+      }
+
+      /* hero right */
+      .hero-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 1s 0.3s ease both;
+        position: relative;
+      }
+      .hero-graphic {
+        width: 420px;
+        height: 420px;
+        position: relative;
+      }
+      .hex-ring {
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(22, 48, 92, 0.18);
+        border-radius: 50%;
+        animation: spin 28s linear infinite;
+      }
+      .hex-ring:nth-child(2) {
+        inset: 30px;
+        border-color: rgba(217, 123, 33, 0.22);
+        animation-direction: reverse;
+        animation-duration: 18s;
+      }
+      .hex-center {
+        position: absolute;
+        inset: 60px;
+        background: radial-gradient(circle, #ffffff 0%, var(--card-tint) 75%);
+        border-radius: 50%;
+        border: 2px solid rgba(22, 48, 92, 0.15);
+        box-shadow: var(--shadow-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .hex-logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 3.2rem;
+        color: var(--navy-deep);
+        line-height: 1;
+      }
+      .hex-logo span {
+        color: var(--amber);
+      }
+      .hex-sub {
+        font-size: 0.58rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 0.3rem;
+        text-align: center;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ── MARQUEE ── */
+      .marquee-strip {
+        background: var(--navy-deep);
+        padding: 0.9rem 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .marquee-inner {
+        display: inline-flex;
+        gap: 0;
+        animation: marquee 20s linear infinite;
+      }
+      .marquee-item {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.92);
+        padding: 0 2.5rem;
+      }
+      .marquee-dot {
+        color: var(--amber);
+        padding: 0 0.2rem;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ── SECTIONS ── */
+      section {
+        padding: 6rem 5vw;
+      }
+
+      .section-eyebrow {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--amber-deep);
+        margin-bottom: 0.8rem;
+      }
+
+      .section-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.8rem, 5vw, 4.5rem);
+        line-height: 0.95;
+        letter-spacing: 0.03em;
+        color: var(--navy-deep);
+      }
+
+      .section-header {
+        max-width: 780px;
+        margin-bottom: 3.5rem;
+      }
+
+      .section-desc {
+        max-width: 720px;
+        color: var(--ink-soft);
+        margin-top: 1.2rem;
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      /* ── SERVICES GRID ── */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+
+      .service-card {
+        background: var(--card);
+        min-height: 280px;
+        padding: 2.5rem 2rem 2.2rem;
+        border: 1px solid var(--hairline);
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        transition:
+          box-shadow 0.25s ease,
+          transform 0.25s ease,
+          border-color 0.25s ease;
+        cursor: default;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--amber);
+        transition: width 0.35s ease;
+      }
+
+      .service-card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-4px);
+        border-color: var(--hairline-strong);
+      }
+
+      .service-card:hover::before {
+        width: 100%;
+      }
+
+      .service-icon {
+        font-size: 2rem;
+        line-height: 1;
+        margin-bottom: 1.6rem;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover .service-icon {
+        transform: translateY(-3px);
+      }
+
+      .service-name {
+        max-width: 300px;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--navy-deep);
+        margin-bottom: 0.9rem;
+      }
+
+      .service-desc {
+        max-width: 360px;
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+        line-height: 1.7;
+        margin-top: auto;
+      }
+
+      @media (max-width: 900px) {
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        section {
+          padding: 4.5rem 5vw;
+        }
+        .section-header {
+          margin-bottom: 2.5rem;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .service-card {
+          min-height: 240px;
+          padding: 2rem 1.5rem;
+        }
+      }
+
+      /* ── WHY US ── */
+      .why-section {
+        background: var(--card-tint);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+      .why-left {
+        padding: 6rem 5vw;
+      }
+      .why-right {
+        background: var(--dark-band);
+        padding: 6rem 4vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .why-right::before {
+        content: "RC";
+        position: absolute;
+        right: -1rem;
+        bottom: -2rem;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 12rem;
+        color: rgba(255, 255, 255, 0.05);
+        line-height: 1;
+        pointer-events: none;
+      }
+      .feature-item {
+        display: flex;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .why-right .feature-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .feature-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .feature-num {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2rem;
+        color: var(--amber-deep);
+        line-height: 1;
+        min-width: 2.5rem;
+      }
+      .why-right .feature-num {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .feature-title {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 1.75rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.3rem;
+        color: var(--navy-deep);
+      }
+      .why-right .feature-title {
+        color: #fff;
+      }
+      .feature-desc {
+        font-size: 1rem;
+        color: var(--ink-soft);
+        line-height: 1.65;
+      }
+      .why-right .feature-desc {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      /* ── PROJECTS ── */
+      .projects-section {
+        background: var(--paper);
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 1.25rem;
+      }
+
+      .project-card:first-child {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        min-height: 460px;
+      }
+      .project-card:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .project-card:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
+      }
+      .project-card:nth-child(4) {
+        grid-column: 3;
+        grid-row: 1 / 3;
+        min-height: 460px;
+      }
+      .project-card {
+        background: var(--card);
+        padding: 2.5rem;
+        position: relative;
+        overflow: hidden;
+        min-height: 220px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        box-shadow: var(--shadow-md);
+        transition:
+          box-shadow 0.25s ease,
+          transform 0.25s ease;
+      }
+      .project-card:nth-child(4) .project-img {
+        object-position: center 32%;
+      }
+      .project-card:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-3px);
+      }
+      .project-tag {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin-bottom: 0.5rem;
+      }
+      .project-name {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #fff;
+      }
+      .project-val {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        color: #fff;
+        line-height: 1;
+        margin-top: 0.4rem;
+      }
+      .project-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(14, 20, 32, 0.9) 30%,
+          rgba(14, 20, 32, 0.35) 65%,
+          rgba(14, 20, 32, 0.08) 100%
+        );
+        z-index: 1;
+      }
+      .project-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        object-position: center bottom;
+        transition: transform 0.5s ease;
+        filter: saturate(0.95) brightness(1);
+      }
+      .project-card:hover .project-img {
+        transform: scale(1.06);
+        filter: saturate(1.05) brightness(1.03);
+      }
+      .project-content {
+        position: relative;
+        z-index: 2;
+      }
+      .project-num {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        color: rgba(255, 255, 255, 0.15);
+        line-height: 1;
+        z-index: 2;
+      }
+
+      /* ── CTA BAND ── */
+      .cta-band {
+        background: linear-gradient(120deg, var(--navy-deep), var(--navy));
+        padding: 5rem 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-band::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 20px,
+          rgba(255, 255, 255, 0.025) 20px,
+          rgba(255, 255, 255, 0.025) 21px
+        );
+      }
+      .cta-text {
+        position: relative;
+      }
+      .cta-heading {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.2rem, 4vw, 3.8rem);
+        line-height: 1;
+        color: #fff;
+      }
+      .cta-sub {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 0.5rem;
+      }
+      .cta-actions {
+        display: flex;
+        gap: 1rem;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .btn-white {
+        background: var(--amber);
+        color: #fff;
+        padding: 1rem 2.2rem;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        box-shadow: var(--shadow-md);
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+      }
+      .btn-white:hover {
+        background: var(--amber-deep);
+        transform: translateY(-2px);
+      }
+
+      /* ── CONTACT ── */
+      .contact-section {
+        background: var(--card);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+      .contact-left {
+        padding: 6rem 5vw;
+      }
+      .contact-right {
+        padding: 6rem 5vw;
+        background: var(--card-tint);
+      }
+
+      .contact-info {
+        margin-top: 2.5rem;
+      }
+      .contact-row {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+        padding-bottom: 1.8rem;
+        border-bottom: 1px solid var(--hairline);
+        align-items: flex-start;
+      }
+      .contact-row:last-child {
+        border-bottom: none;
+      }
+      .contact-icon {
+        font-size: 1.3rem;
+      }
+      .contact-key {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--amber-deep);
+        margin-bottom: 0.25rem;
+      }
+      .contact-val {
+        font-size: 0.95rem;
+        color: var(--ink-soft);
+      }
+      .gstin-val {
+        font-size: 0.88rem;
+        color: var(--ink-soft);
+        font-family: "Barlow Condensed", sans-serif;
+        letter-spacing: 0.08em;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .label-text {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      input,
+      textarea,
+      select {
+        background: #ffffff;
+        border: 1px solid var(--hairline-strong);
+        border-radius: 4px;
+        color: var(--ink);
+        padding: 0.85rem 1rem;
+        font-family: "Barlow", sans-serif;
+        font-size: 0.9rem;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        width: 100%;
+      }
+      input:focus,
+      textarea:focus,
+      select:focus {
+        border-color: var(--navy-bright);
+        box-shadow: 0 0 0 3px rgba(44, 90, 163, 0.12);
+      }
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+      select option {
+        background: #ffffff;
+      }
+      .form-submit {
+        background: var(--navy);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 1.1rem;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        box-shadow: var(--shadow-sm);
+        transition:
+          background 0.2s,
+          box-shadow 0.2s;
+        clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+      }
+      .form-submit:hover {
+        background: var(--navy-bright);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--paper);
+        border-top: 1px solid var(--hairline);
+        padding: 2.5rem 5vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .footer-logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.4rem;
+        letter-spacing: 0.06em;
+        line-height: 1;
+        color: var(--navy-deep);
+      }
+      .footer-logo span {
+        color: var(--amber);
+      }
+      .footer-logo-sub {
+        font-size: 0.48rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-family: "Barlow", sans-serif;
+        font-weight: 600;
+      }
+      .footer-tagline {
+        font-size: 0.75rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-align: center;
+      }
+      .footer-copy {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .footer-links a {
+        font-size: 0.78rem;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--amber-deep);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* responsive */
+      @media (max-width: 900px) {
+        .hero,
+        .why-section,
+        .contact-section {
+          grid-template-columns: 1fr;
+        }
+        .hero-right {
+          display: none;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .project-card:first-child {
+          grid-row: auto;
+        }
+        .cta-band {
+          flex-direction: column;
+          text-align: center;
+        }
+        .why-right {
+          padding: 4rem 5vw;
+        }
+        .nav-links {
+          display: none;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="logo">
+        <div class="logo-main">RED<span>CON</span></div>
+        <div class="logo-sub">Engineering &amp; Construction</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <div class="hero-badge">Navi Mumbai's Trusted Contractor</div>
+        <h1 class="hero-title">
+          We Build
+          <span class="accent">What</span>
+          Lasts.
+        </h1>
+        <p class="hero-sub">
+          REDCON Engineering &amp; Construction specializes in industrial
+          fabrication and erection services, including structural steel, piping,
+          static and rotary equipment, shutdown, and manpower supply. We support
+          industrial projects with skilled resources, technical expertise, and a
+          commitment to safe, precise, and reliable execution.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Get a Free Quote</a>
+          <a href="#projects" class="btn-ghost">View Projects</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">25+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">5+ Yrs</div>
+            <div class="stat-label">In Business</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">95%</div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Manpowers</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-graphic">
+          <div class="hex-ring"></div>
+          <div class="hex-ring"></div>
+          <div class="hex-center">
+            <div class="hex-logo">RED<span>CON</span></div>
+            <div class="hex-sub">Engineering &amp;<br />Construction</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-strip">
+      <div class="marquee-inner">
+        <span class="marquee-item">Structural Fabrication &amp; Erection</span>
+        <span class="marquee-dot">●</span>
+
+        <span class="marquee-item">Piping Fabrication &amp; Erection</span>
+        <span class="marquee-dot">●</span>
+
+        <span class="marquee-item">Static &amp; Rotary Equipment</span>
+        <span class="marquee-dot">●</span>
+
+        <span class="marquee-item">Scaffolding</span>
+        <span class="marquee-dot">●</span>
+
+        <span class="marquee-item"
+          >Skilled &amp; Unskilled Manpower Supply</span
+        >
+        <span class="marquee-dot">●</span>
+
+        <!-- Repeat for seamless scrolling -->
+
+        <span class="marquee-item">Structural Fabrication &amp; Erection</span>
+        <span class="marquee-dot">●</span>
+
+        <span class="marquee-item">Piping Fabrication &amp; Erection</span>
+        <span class="marquee-dot">●</span>
+
+        <span class="marquee-item">Static &amp; Rotary Equipment</span>
+        <span class="marquee-dot">●</span>
+
+        <span class="marquee-item">Scaffolding</span>
+        <span class="marquee-dot">●</span>
+
+        <span class="marquee-item"
+          >Skilled &amp; Unskilled Manpower Supply</span
+        >
+        <span class="marquee-dot">●</span>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-header">
+        <div class="section-eyebrow">Our Expertise</div>
+
+        <h2 class="section-title">Our Core Services</h2>
+
+        <p class="section-desc">
+          REDCON Engineering & Construction provides industrial fabrication,
+          erection, equipment, scaffolding, and manpower solutions with a focus
+          on quality, safety, precision, and reliable project execution.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🏗️</span>
+
+          <div class="service-name">Structural Fabrication &amp; Erection</div>
+
+          <div class="service-desc">
+            Structural steel fabrication and erection services for industrial
+            projects, covering fabrication, assembly, and on-site erection with
+            precision and dependable execution.
+          </div>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🔩</span>
+
+          <div class="service-name">Piping Fabrication &amp; Erection</div>
+
+          <div class="service-desc">
+            Industrial piping fabrication and erection services with careful
+            attention to fabrication, fit-up, alignment, installation, and
+            quality throughout project execution.
+          </div>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">⚙️</span>
+
+          <div class="service-name">Static & Rotary Equipment</div>
+
+          <div class="service-desc">
+            Installation and erection support for static equipment, with focus
+            on accurate positioning, assembly, alignment, and safe execution at
+            industrial project sites.
+          </div>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🔧</span>
+
+          <div class="service-name">Shutdown</div>
+
+          <div class="service-desc">
+            Comprehensive shutdown and turnaround support for industrial
+            facilities, including fabrication, erection, maintenance, equipment
+            work, and skilled manpower to help ensure safe and efficient project
+            execution.
+          </div>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🏗️</span>
+
+          <div class="service-name">Scaffolding</div>
+
+          <div class="service-desc">
+            Scaffolding solutions supporting industrial fabrication, erection,
+            construction, maintenance, and other site activities with emphasis
+            on safe and accessible work environments.
+          </div>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">👷</span>
+
+          <div class="service-name">
+            Skilled &amp; Unskilled Manpower Supply
+          </div>
+
+          <div class="service-desc">
+            Skilled and unskilled manpower supply to support industrial
+            fabrication, erection, construction, maintenance, and site
+            operations according to project requirements.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <div class="why-section" id="why">
+      <div class="why-left">
+        <div class="section-eyebrow">Why REDCON</div>
+
+        <h2 class="section-title">
+          Experienced Team.<br />Reliable Execution.
+        </h2>
+
+        <div style="margin-top: 2rem">
+          <div class="feature-item">
+            <div class="feature-num">01</div>
+            <div>
+              <div class="feature-title">Qualified & Experienced Team</div>
+              <div class="feature-desc">
+                Our team consists of well-qualified and experienced engineers,
+                supervisors, fabricators, and other skilled professionals who
+                contribute to effective project management and execution.
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-num">02</div>
+            <div>
+              <div class="feature-title">Strong Project Execution</div>
+              <div class="feature-desc">
+                Our experienced workforce supports project execution across
+                fabrication, erection, shutdown, equipment, and other industrial
+                site activities according to project requirements.
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-num">03</div>
+            <div>
+              <div class="feature-title">Flexible Workforce</div>
+              <div class="feature-desc">
+                Our manpower strength varies according to active project
+                requirements, allowing us to deploy the required workforce
+                efficiently across different project sites.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-right">
+        <div class="feature-item">
+          <div class="feature-num">04</div>
+          <div>
+            <div class="feature-title" style="color: var(--card-tint)">
+              Skilled & Unskilled Manpower
+            </div>
+            <div class="feature-desc">
+              REDCON provides skilled and unskilled manpower to support
+              industrial projects and site operations based on specific project
+              requirements.
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-num">05</div>
+          <div>
+            <div class="feature-title" style="color: var(--card-tint)">
+              Building Professional Skills
+            </div>
+            <div class="feature-desc">
+              Our working process enables personnel to develop skills in their
+              respective disciplines, strengthening their ability to take on
+              responsibilities and manage site activities independently.
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-num">06</div>
+          <div>
+            <div class="feature-title" style="color: var(--card-tint)">
+              Site Management Capability
+            </div>
+            <div class="feature-desc">
+              With experienced engineers, supervisors, fabricators, and
+              supporting personnel, our teams are structured to effectively
+              coordinate and execute work at project sites.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PROJECTS -->
+    <section class="projects-section" id="projects">
+      <div class="section-header">
+        <div class="section-eyebrow">Our Work</div>
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-desc">
+          A snapshot of what we've delivered — from landmark commercial builds
+          to complex industrial facilities in and around Navi Mumbai.
+        </p>
+      </div>
+      <div class="projects-grid">
+        <!-- 01 — spans 2 rows -->
+        <div class="project-card">
+          <img
+            class="project-img"
+            src="./images/Workers.jpeg"
+            alt="Commercial office building construction"
+            loading="lazy"
+          />
+          <div class="project-bg"></div>
+          <div class="project-num">01</div>
+          <div class="project-content">
+            <div class="project-tag">Structural</div>
+            <div class="project-name">Structural Fabrication & Erection</div>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="project-card">
+          <img
+            class="project-img"
+            src="./images/Factory1.jpeg"
+            alt="Residential apartment complex"
+            loading="lazy"
+          />
+          <div class="project-bg"></div>
+          <div class="project-num">02</div>
+          <div class="project-content">
+            <div class="project-tag">Piping</div>
+            <div class="project-name">Piping Fabrication & Erection</div>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="project-card">
+          <img
+            class="project-img"
+            src="./images/Shutdown.jpeg"
+            alt="Industrial warehouse logistics facility"
+            loading="lazy"
+          />
+          <div class="project-bg"></div>
+          <div class="project-num">03</div>
+          <div class="project-content">
+            <div class="project-tag">Equipment</div>
+            <div class="project-name">Static & Rotary Equipment</div>
+          </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="project-card">
+          <img
+            class="project-img"
+            src="./images/Container.jpeg"
+            alt="Road civil infrastructure construction"
+            loading="lazy"
+          />
+          <div class="project-bg"></div>
+          <div class="project-num">04</div>
+          <div class="project-content">
+            <div class="project-tag">Site Services</div>
+            <div class="project-name">Scaffolding & Manpower Supply</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-band">
+      <div class="cta-text">
+        <h2 class="cta-heading">Ready to Start Your Project?</h2>
+        <p class="cta-sub">
+          Talk to our team today — free consultation, no obligation.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn-white">Request a Quote</a>
+        <a
+          href="tel:+919770280990"
+          class="btn-ghost"
+          style="border-color: rgba(255, 255, 255, 0.3); color: #fff"
+          >Call Us Now</a
+        >
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-section" id="contact">
+      <div class="contact-left">
+        <div class="section-eyebrow">Get In Touch</div>
+        <h2 class="section-title">Let's Build<br />Together.</h2>
+        <div class="contact-info">
+          <div class="contact-row">
+            <span class="contact-icon">📍</span>
+            <div>
+              <div class="contact-key">Address</div>
+              <div class="contact-val">
+                Flat No. 203, Civic Corner Building,<br />Plot No. 106, Sector
+                10, Taloja Phase 01,<br />Navi Mumbai – 410 208.
+              </div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">📞</span>
+            <div>
+              <div class="contact-key">Phone</div>
+              <div class="contact-val">
+                +91 97702 80990<br />+91 70219 41688
+              </div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">✉️</span>
+            <div>
+              <div class="contact-key">Email</div>
+              <div class="contact-val">redcon.mumbai@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">🏛️</span>
+            <div>
+              <div class="contact-key">GSTIN</div>
+              <div class="gstin-val">27CVHPA6270N1Z8</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">🕐</span>
+            <div>
+              <div class="contact-key">Business Hours</div>
+              <div class="contact-val">Mon–Sat: 9:00 AM – 7:00 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <h3
+          style="
+            font-family: &quot;Barlow Condensed&quot;, sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 1.5rem;
+          "
+        >
+          Request a Free Quote
+        </h3>
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <label>
+              <span class="label-text">First Name</span>
+              <input
+                type="text"
+                name="first_name"
+                placeholder="Rajan"
+                required
+              />
+            </label>
+
+            <label>
+              <span class="label-text">Last Name</span>
+              <input
+                type="text"
+                name="last_name"
+                placeholder="Sharma"
+                required
+              />
+            </label>
+          </div>
+
+          <label>
+            <span class="label-text">Email Address</span>
+            <input
+              type="email"
+              name="email"
+              placeholder="rajan@company.com"
+              required
+            />
+          </label>
+
+          <label>
+            <span class="label-text">Phone Number</span>
+            <input type="tel" name="phone" placeholder="+91 00000 00000" />
+          </label>
+
+          <label>
+            <span class="label-text">Service Required</span>
+            <select name="service" required>
+              <option value="">Select a service...</option>
+              <option>Structural Fabrication &amp; Erection</option>
+              <option>Piping Fabrication &amp; Erection</option>
+              <option>Static &amp; Rotary Equipment</option>
+              <option>Scaffolding</option>
+              <option>Skilled &amp; Unskilled Manpower Supply</option>
+            </select>
+          </label>
+
+          <label>
+            <span class="label-text">Project Details</span>
+            <textarea
+              name="project_details"
+              placeholder="Tell us about your project — size, location, timeline, requirements..."
+            ></textarea>
+          </label>
+
+          <button type="submit" class="form-submit">Send My Request →</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>
+        <div class="footer-logo">RED<span>CON</span></div>
+        <div class="footer-logo-sub">Engineering &amp; Construction</div>
+      </div>
+      <div class="footer-tagline">
+        All Types of Mechanical and Civil Constructions
+      </div>
+      <div class="footer-copy">© 2025 REDCON. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
+
+    <script>
+      function handleSubmit(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector(".form-submit");
+        btn.textContent = "✓ Request Sent!";
+        btn.style.background = "#2e7d32";
+        setTimeout(() => {
+          btn.textContent = "Send My Request →";
+          btn.style.background = "";
+          e.target.reset();
+        }, 3000);
+      }
+
+      // Scroll-reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(
+          ".service-card, .feature-item, .project-card, .contact-row",
+        )
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>
