@@ -1151,6 +1151,656 @@
           object-position: center 30%;
         }
       }
+      /* =========================================================
+   LEADERSHIP
+   ========================================================= */
+
+      .leadership-section {
+        position: relative;
+
+        width: 100%;
+
+        background:
+          radial-gradient(
+            circle at 8% 20%,
+            rgba(31, 92, 148, 0.035),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 92% 70%,
+            rgba(63, 110, 38, 0.035),
+            transparent 30%
+          ),
+          var(--paper);
+
+        padding: clamp(2.5rem, 4.5vh, 3.5rem) 3vw clamp(2rem, 3vh, 2.5rem);
+
+        overflow: hidden;
+      }
+
+      /* =========================================================
+   HEADER
+   ========================================================= */
+
+      .leadership-header {
+        width: 100%;
+        max-width: 760px;
+
+        margin: 0 auto clamp(1.5rem, 2.8vh, 2.1rem);
+
+        position: relative;
+        z-index: 2;
+      }
+
+      .leadership-header .section-eyebrow {
+        margin-bottom: 0.35rem;
+      }
+
+      .leadership-header .section-title {
+        font-size: clamp(2.7rem, 4vw, 4rem);
+
+        line-height: 0.88;
+
+        letter-spacing: 0.01em;
+      }
+
+      .leadership-header .section-title span {
+        color: var(--green);
+      }
+
+      .leadership-header .section-desc {
+        max-width: 680px;
+
+        margin-top: 0.7rem;
+
+        font-size: clamp(0.78rem, 0.85vw, 0.9rem);
+
+        line-height: 1.45;
+
+        color: var(--ink-soft);
+      }
+
+      /* =========================================================
+   GRID
+   ========================================================= */
+
+      .leadership-grid {
+        width: 100%;
+        max-width: 1080px;
+
+        margin: 0 auto;
+
+        display: grid;
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: clamp(0.8rem, 1.2vw, 1.2rem);
+
+        position: relative;
+        z-index: 2;
+      }
+
+      /* =========================================================
+   CARD
+   ========================================================= */
+
+      .leader-card {
+        position: relative;
+
+        min-width: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow: hidden;
+
+        background: var(--card);
+
+        border: 1px solid var(--hairline);
+
+        border-radius: 9px;
+
+        box-shadow: 0 3px 12px rgba(0, 26, 59, 0.055);
+
+        opacity: 0;
+
+        transform: translateY(22px) scale(0.985);
+
+        animation: leaderCardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+        transition:
+          transform 0.35s ease,
+          box-shadow 0.35s ease,
+          border-color 0.35s ease;
+      }
+
+      /* stagger */
+
+      .leader-card:nth-child(1) {
+        animation-delay: 0.12s;
+      }
+
+      .leader-card:nth-child(2) {
+        animation-delay: 0.22s;
+      }
+
+      .leader-card:nth-child(3) {
+        animation-delay: 0.32s;
+      }
+
+      /* hover */
+
+      .leader-card:hover {
+        transform: translateY(-5px);
+
+        border-color: var(--hairline-strong);
+
+        box-shadow: 0 14px 32px rgba(0, 26, 59, 0.11);
+      }
+
+      /* =========================================================
+   TOP BRAND LINE
+   ========================================================= */
+
+      .leader-card::before {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 0;
+        height: 3px;
+
+        background: linear-gradient(90deg, var(--navy), var(--green));
+
+        z-index: 10;
+
+        animation: leaderAccentIn 0.7s ease forwards;
+      }
+
+      .leader-card:nth-child(1)::before {
+        animation-delay: 0.45s;
+      }
+
+      .leader-card:nth-child(2)::before {
+        animation-delay: 0.55s;
+      }
+
+      .leader-card:nth-child(3)::before {
+        animation-delay: 0.65s;
+      }
+
+      /* =========================================================
+   PHOTO
+   ========================================================= */
+
+      .leader-photo-wrap {
+        position: relative;
+
+        width: 100%;
+
+        aspect-ratio: 1 / 1;
+
+        overflow: hidden;
+
+        background: var(--card-tint);
+
+        flex-shrink: 0;
+      }
+
+      .leader-photo {
+        width: 100%;
+        height: 100%;
+
+        display: block;
+
+        /*
+    Square source image + square container
+    = no cropping.
+  */
+        object-fit: contain;
+
+        object-position: center;
+
+        transition:
+          transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+          filter 0.5s ease;
+      }
+
+      .leader-card:hover .leader-photo {
+        transform: scale(1.025);
+
+        filter: saturate(1.02) contrast(1.02);
+      }
+
+      /* =========================================================
+   IMAGE OVERLAY
+   ========================================================= */
+
+      .leader-photo-overlay {
+        position: absolute;
+
+        inset: 0;
+
+        background: linear-gradient(
+          to top,
+          rgba(0, 26, 59, 0.55) 0%,
+          rgba(0, 26, 59, 0.1) 38%,
+          transparent 70%
+        );
+
+        pointer-events: none;
+      }
+
+      /* =========================================================
+   PHOTO NUMBER
+   ========================================================= */
+
+      .leader-number {
+        position: absolute;
+
+        top: 0.8rem;
+        right: 1rem;
+
+        z-index: 5;
+
+        font-family: "Bebas Neue", sans-serif;
+
+        font-size: clamp(3rem, 4vw, 4rem);
+
+        line-height: 0.85;
+
+        color: rgba(255, 255, 255, 0.72);
+
+        opacity: 0;
+
+        transform: translateY(-8px);
+
+        animation: leaderNumberIn 0.6s ease forwards;
+      }
+
+      .leader-card:nth-child(1) .leader-number {
+        animation-delay: 0.55s;
+      }
+
+      .leader-card:nth-child(2) .leader-number {
+        animation-delay: 0.65s;
+      }
+
+      .leader-card:nth-child(3) .leader-number {
+        animation-delay: 0.75s;
+      }
+
+      .leader-card:hover .leader-number {
+        color: rgba(255, 255, 255, 0.95);
+
+        transform: translateY(-2px);
+      }
+
+      /* =========================================================
+   CONTENT
+   ========================================================= */
+
+      .leader-content {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 1.1rem 1.25rem 1rem;
+
+        background: var(--card);
+      }
+
+      /* green vertical accent */
+
+      .leader-content::before {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        top: 1.1rem;
+
+        width: 3px;
+        height: 38px;
+
+        background: linear-gradient(
+          to bottom,
+          var(--navy-bright),
+          var(--green)
+        );
+
+        border-radius: 0 3px 3px 0;
+      }
+
+      /* =========================================================
+   ROLE
+   ========================================================= */
+
+      .leader-role {
+        margin-bottom: 0.3rem;
+
+        font-size: 0.56rem;
+
+        font-weight: 700;
+
+        letter-spacing: 0.16em;
+
+        text-transform: uppercase;
+
+        color: var(--green-deep);
+      }
+
+      /* =========================================================
+   NAME
+   ========================================================= */
+
+      .leader-name {
+        margin-bottom: 0.55rem;
+
+        font-family: "Bebas Neue", sans-serif;
+
+        font-size: clamp(2rem, 2.7vw, 2.8rem);
+
+        line-height: 0.9;
+
+        letter-spacing: 0.025em;
+
+        color: var(--navy-deep);
+      }
+
+      /* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+      .leader-description {
+        width: 100%;
+        max-width: 100%;
+
+        font-size: clamp(0.72rem, 0.78vw, 0.8rem);
+
+        line-height: 1.48;
+
+        color: var(--ink-soft);
+      }
+
+      /* =========================================================
+   FOOTER
+   ========================================================= */
+
+      .leader-footer {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 0.5rem;
+
+        padding: 0.65rem 1.25rem;
+
+        border-top: 1px solid var(--hairline);
+
+        font-size: 0.48rem;
+
+        font-weight: 700;
+
+        letter-spacing: 0.11em;
+
+        text-transform: uppercase;
+
+        color: var(--muted);
+
+        flex-shrink: 0;
+      }
+
+      .leader-footer span:first-child {
+        color: var(--navy);
+      }
+
+      /* =========================================================
+   BOTTOM NOTE
+   ========================================================= */
+
+      .leadership-note {
+        width: 100%;
+        max-width: 1080px;
+
+        margin: clamp(1rem, 1.8vh, 1.35rem) auto 0;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 0.7rem;
+
+        font-size: 0.53rem;
+
+        font-weight: 700;
+
+        letter-spacing: 0.14em;
+
+        text-transform: uppercase;
+
+        color: var(--muted);
+
+        position: relative;
+        z-index: 2;
+      }
+
+      .leadership-line {
+        width: 32px;
+        height: 2px;
+
+        flex-shrink: 0;
+
+        background: linear-gradient(90deg, var(--navy), var(--green));
+      }
+
+      /* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+      @keyframes leaderCardIn {
+        from {
+          opacity: 0;
+
+          transform: translateY(22px) scale(0.985);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes leaderAccentIn {
+        from {
+          width: 0;
+        }
+
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes leaderNumberIn {
+        from {
+          opacity: 0;
+
+          transform: translateY(-8px);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================================================
+   LAPTOP — 1100px AND BELOW
+   ========================================================= */
+
+      @media (max-width: 1100px) and (min-width: 901px) {
+        .leadership-section {
+          padding: 2.2rem 2.5vw 1.7rem;
+        }
+
+        .leadership-header {
+          margin-bottom: 1.4rem;
+        }
+
+        .leadership-header .section-title {
+          font-size: 3.2rem;
+        }
+
+        .leadership-header .section-desc {
+          font-size: 0.78rem;
+          line-height: 1.4;
+        }
+
+        .leadership-grid {
+          max-width: 1000px;
+
+          gap: 1rem;
+        }
+
+        .leader-content {
+          padding: 1rem 1.05rem 0.9rem;
+        }
+
+        .leader-role {
+          font-size: 0.52rem;
+        }
+
+        .leader-name {
+          font-size: 2.25rem;
+
+          margin-bottom: 0.45rem;
+        }
+
+        .leader-description {
+          font-size: 0.7rem;
+
+          line-height: 1.42;
+        }
+
+        .leader-footer {
+          padding: 0.6rem 1.05rem;
+
+          font-size: 0.44rem;
+        }
+
+        .leadership-note {
+          margin-top: 0.8rem;
+
+          font-size: 0.5rem;
+        }
+      }
+
+      /* =========================================================
+   TABLET
+   ========================================================= */
+
+      @media (max-width: 900px) {
+        .leadership-section {
+          padding: 4rem 5vw;
+        }
+
+        .leadership-header {
+          max-width: 720px;
+
+          margin-bottom: 2.2rem;
+        }
+
+        .leadership-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+
+          max-width: 760px;
+        }
+      }
+
+      /* =========================================================
+   MOBILE
+   ========================================================= */
+
+      @media (max-width: 600px) {
+        .leadership-section {
+          padding: 4rem 5vw;
+        }
+
+        .leadership-header {
+          margin-bottom: 2rem;
+        }
+
+        .leadership-header .section-title {
+          font-size: 2.8rem;
+        }
+
+        .leadership-header .section-desc {
+          font-size: 0.82rem;
+
+          line-height: 1.55;
+        }
+
+        .leadership-grid {
+          grid-template-columns: 1fr;
+
+          gap: 1rem;
+
+          max-width: 100%;
+        }
+
+        .leader-photo-wrap {
+          aspect-ratio: 1 / 1;
+        }
+
+        .leader-content {
+          padding: 1.45rem 1.4rem 1.25rem;
+        }
+
+        .leader-role {
+          font-size: 0.58rem;
+        }
+
+        .leader-name {
+          font-size: 2.8rem;
+
+          margin-bottom: 0.65rem;
+        }
+
+        .leader-description {
+          font-size: 0.86rem;
+
+          line-height: 1.6;
+        }
+
+        .leader-footer {
+          padding: 0.8rem 1.4rem;
+
+          font-size: 0.5rem;
+        }
+
+        .leader-number {
+          top: 1rem;
+          right: 1rem;
+
+          font-size: 3.4rem;
+        }
+
+        .leadership-note {
+          margin-top: 1.2rem;
+
+          font-size: 0.52rem;
+
+          line-height: 1.5;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1259,6 +1909,135 @@
         <span class="marquee-dot">●</span>
       </div>
     </div>
+
+    <!-- LEADERSHIP -->
+    <!-- LEADERSHIP -->
+    <section class="leadership-section" id="leadership">
+      <div class="leadership-header">
+        <div class="section-eyebrow">Leadership &amp; Team</div>
+
+        <h2 class="section-title">
+          The People Behind<br />
+          <span>REDCON</span>
+        </h2>
+
+        <p class="section-desc">
+          REDCON Engineering &amp; Construction is supported by a leadership and
+          management team focused on disciplined execution, effective
+          coordination, and the smooth operation of every project and business
+          function.
+        </p>
+      </div>
+
+      <div class="leadership-grid">
+        <!-- MD AAMIR -->
+        <article class="leader-card">
+          <div class="leader-photo-wrap">
+            <img
+              src="./images/MdAmir.png"
+              alt="Md Aamir - Managing Director, REDCON Engineering & Construction"
+              class="leader-photo"
+              loading="lazy"
+            />
+
+            <div class="leader-photo-overlay"></div>
+
+            <div class="leader-number">01</div>
+          </div>
+
+          <div class="leader-content">
+            <div class="leader-role">Mechanical Project Lead</div>
+
+            <h3 class="leader-name">Md Aamir</h3>
+
+            <p class="leader-description">
+              A qualified Mechanical Engineer with 8 years of experience,
+              specializing in execution, planning, and billing across power,
+              cement, and steel plant projects. He leads project strategy,
+              business growth, and long-term client relationships with REDCON.
+            </p>
+          </div>
+
+          <div class="leader-footer">
+            <span>REDCON</span>
+            <span>Leadership</span>
+          </div>
+        </article>
+
+        <!-- YAWAR -->
+        <article class="leader-card">
+          <div class="leader-photo-wrap">
+            <img
+              src="./images/yawar.jpg"
+              alt="Yawar - IT Department, REDCON Engineering & Construction"
+              class="leader-photo"
+              loading="lazy"
+            />
+
+            <div class="leader-photo-overlay"></div>
+
+            <div class="leader-number">02</div>
+          </div>
+
+          <div class="leader-content">
+            <div class="leader-role">IT Department</div>
+
+            <h3 class="leader-name">sheikh Yawar</h3>
+
+            <p class="leader-description">
+              Supporting REDCON's digital and technology operations with 3 years
+              of experience, managing IT systems, digital infrastructure,
+              website development, and technology-driven workflows that support
+              smooth and efficient day-to-day business operations.
+            </p>
+          </div>
+
+          <div class="leader-footer">
+            <span>REDCON</span>
+            <span>Information Technology</span>
+          </div>
+        </article>
+
+        <!-- MD MOSHAHID -->
+        <article class="leader-card">
+          <div class="leader-photo-wrap">
+            <img
+              src="./images/Moshahid.png"
+              alt="Md Moshahid - HR Executive, REDCON Engineering & Construction"
+              class="leader-photo"
+              loading="lazy"
+            />
+
+            <div class="leader-photo-overlay"></div>
+
+            <div class="leader-number">03</div>
+          </div>
+
+          <div class="leader-content">
+            <div class="leader-role">HR Executive</div>
+
+            <h3 class="leader-name">Md Moshahid</h3>
+
+            <p class="leader-description">
+              Supporting workforce management and HR activities across REDCON,
+              coordinating personnel requirements, employee support, recruitment
+              processes, and workforce-related activities to ensure smooth,
+              efficient, and well-organized project and business operations.
+            </p>
+          </div>
+
+          <div class="leader-footer">
+            <span>REDCON</span>
+            <span>Human Resources</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="leadership-note">
+        <span class="leadership-line"></span>
+        <span>Leadership · Technology · People · One REDCON</span>
+      </div>
+    </section>
 
     <!-- SERVICES -->
     <section id="services">
@@ -1456,10 +2235,15 @@
       </div>
       <div class="projects-grid">
         <!-- 01 — spans 2 rows -->
-        <div class="project-card">
+        <div
+          class="project-card"
+          onclick="openProject('structural')"
+          role="button"
+          tabindex="0"
+        >
           <img
             class="project-img"
-            src="./images/Workers.jpeg"
+            src="./images/1000547698.jpg"
             alt="Commercial office building construction"
             loading="lazy"
           />
@@ -1472,10 +2256,15 @@
         </div>
 
         <!-- 02 -->
-        <div class="project-card">
+        <div
+          class="project-card"
+          onclick="openProject('piping')"
+          role="button"
+          tabindex="0"
+        >
           <img
             class="project-img"
-            src="./images/Factory1.jpeg"
+            src="https://images.pexels.com/photos/15970028/pexels-photo-15970028.jpeg"
             alt="Residential apartment complex"
             loading="lazy"
           />
@@ -1488,10 +2277,15 @@
         </div>
 
         <!-- 03 -->
-        <div class="project-card">
+        <div
+          class="project-card"
+          onclick="openProject('equipment')"
+          role="button"
+          tabindex="0"
+        >
           <img
             class="project-img"
-            src="./images/Shutdown.jpeg"
+            src="https://media.gettyimages.com/id/182487476/photo/copper-wire-twisting-machine.jpg?s=612x612&w=0&k=20&c=UruiCa_TWnaTnFCglhvxgzPDvhWUgt5Bd7dfZPUiD3k="
             alt="Industrial warehouse logistics facility"
             loading="lazy"
           />
@@ -1504,7 +2298,12 @@
         </div>
 
         <!-- 04 -->
-        <div class="project-card">
+        <div
+          class="project-card"
+          onclick="openProject('scaffolding')"
+          role="button"
+          tabindex="0"
+        >
           <img
             class="project-img"
             src="./images/Container.jpeg"
@@ -1515,7 +2314,7 @@
           <div class="project-num">04</div>
           <div class="project-content">
             <div class="project-tag">Site Services</div>
-            <div class="project-name">Scaffolding & Manpower Supply</div>
+            <div class="project-name">Shutdown & Manpower Supply</div>
           </div>
         </div>
       </div>
@@ -1534,7 +2333,10 @@
         <a
           href="tel:+919770280990"
           class="btn-ghost"
-          style="border-color: rgba(255, 255, 255, 0.3); color: var(--navy-deep);"
+          style="
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--navy-deep);
+          "
           >Call Us Now</a
         >
       </div>
@@ -1682,6 +2484,10 @@
     </footer>
 
     <script>
+      function openProject(project) {
+        window.location.href = `project-details.html?project=${project}`;
+      }
+
       function handleSubmit(e) {
         e.preventDefault();
         const btn = e.target.querySelector(".form-submit");
